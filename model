@@ -1,0 +1,23 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class your_model extends CI_Model
+{
+
+ //set table name to be used by all functions
+ var $table = 'items';
+
+ function fetch_record($start,$per_page)
+ {
+  
+	 $query = $this->db->get('items',$per_page,$start);
+	 $data=$query->result();	
+	 
+	 return $data;
+ }
+
+ function counts_record()
+ {
+  return $this->db->count_all("items");
+ }
+
+}
